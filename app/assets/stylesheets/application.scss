@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ $favorite-color: #fad1d9;
+ 
+body{
+  background-color: $favorite-color;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ElearningApp</title>
+    <title><%= yield(:title) %> | Elearning</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +9,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
+    <body>
+        <%= render 'layouts/header' %> 
+        <div class="container">
+            <%= yield %>
+        </div>
+    </body>
 </html>
