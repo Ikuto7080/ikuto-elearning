@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :only_loggedin_users, only: [:edit, :update]
 
   def index
-    @users = User.all
+   # @users = User.all
+   @users = User.paginate(page:params[:page], per_page: 10 )
   end
 
   def new
@@ -26,6 +27,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def destroy
+    User.find(params[:id].destroy)
+    redirect_to users_url
   end
 
   private
