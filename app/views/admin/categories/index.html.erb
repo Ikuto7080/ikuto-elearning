@@ -25,8 +25,8 @@
             <tbody>
                 <% @categories.each do |category| %>
                 <tr>
-                    <td style="width: 250px;"><%= link_to "category.title", "#"%></td>
-                    <td style="width: 500px;"><%= link_to "category.description", "#"%></td>
+                    <td style="width: 250px;"><%= link_to category.title, "#"%></td>
+                    <td style="width: 500px;"><%= category.description %></td>
                     <td style="width: 250px;">
                         <h3 class="block">
                             <%= link_to "Show", admin_category_path(category)%>

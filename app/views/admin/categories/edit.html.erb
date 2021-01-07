@@ -1,7 +1,14 @@
-<h1>Edit Category</h1>
+<div class="container main mt-5">
+    <div class="row">
+        <div class="col-md-5 mt-3">
+            <h1><strong>Edit Category</strong></h1>
+            <hr>
+            <%= render 'form' %>
+        </div>
+    </div>
+</div>
 
-<%= render 'form'%>
 <br>
-
-
-<%= link_to "BACK", admin_categories_path %>
+<span class="btn-group pull-right">
+    <%= link_to "Cancel", admin_categories_path,  class:"btn btn-outline-warning btn-lg mt-3" %>
+</span>
