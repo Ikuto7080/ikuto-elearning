@@ -20,10 +20,13 @@
 
       <% if logged_in? %>
         <li class="nav-item">
-            <%= link_to "Users", users_path, class:"nav-link"%>
+            <%= link_to "Admin", users_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
-            <%= link_to "Logout", logout_path, class:"nav-link"%>
+            <%= link_to "Members", users_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Logout", logout_path, method: :delete, class:"nav-link"%>
         </li>
         <li><%= link_to "Profile", current_user, class:"nav-link"%></li>
         <li>
