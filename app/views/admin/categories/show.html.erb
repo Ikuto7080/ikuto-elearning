@@ -1,11 +1,33 @@
+<div class="container main mt-5">
+    <div class="row">
+        <div class="col-md-3 mt-3 mb-3">
+        <h1>
+        <strong>new Words: Admin</strong>
+        </h1>
+        </div>
+        <div class="col-md-2 mt-3 mb-3">
+            <%= link_to "ADD New Word", "#", class:"btn btn-info btn-log" %> 
+        </div>
+    </div>
+
+    <div class="row">
+        <thead>
+            <tr>
+                <th>Words</th>
+            </tr>
+        </thead>
+    </div>
+</div>
+
+
 <p>
-  <strong>Title</strong>
-  <%= @category.title %>
+    <strong>Title</strong>
+    <%= @category.title %>
 </p>
 
 <p>
-  <strong>Description</strong>
-  <%= @category.description %>
+    <strong>Description</strong>
+    <%= @category.description %>
 </p>
 
 <%= link_to "Back", admin_categories_path%>

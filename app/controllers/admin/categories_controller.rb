@@ -13,9 +13,11 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    @category.save
-    redirect_to admin_category_url(@category)
-    
+    if @category.save
+        redirect_to admin_category_url(@category)
+    else
+      render 'new'
+    end
   end
 
   def edit
