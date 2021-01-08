@@ -19,3 +19,12 @@ User.create!(name: "Michael Reeves",
                 password: password,
                 password_confirmation: password)
    end
+
+
+5.times do |n|
+   title = Faker::Dessert.variety
+   description = Faker::Movie.quote
+   Category.create!(title: title,
+                  description: description
+                  )
+end
