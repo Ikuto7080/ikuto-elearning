@@ -29,13 +29,13 @@
                     <td style="width: 500px;"><%= category.description %></td>
                     <td style="width: 250px;">
                         <h3 class="block">
-                            <%= link_to "Show", admin_category_path(category)%>
+                            <%= link_to "New Word", "#" %>
                         </h3>
                         <h3 class="block">
                             <%= link_to "Edit", edit_admin_category_path(category) %>
                         </h3>
                         <h3 class="block">
-                            <%= link_to "Delete",
+                            <%= link_to "Delete", admin_category_path(category),
                                         method: :delete,
                                         data: { confirm: "Are you sure?" }
                             %>

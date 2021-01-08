@@ -12,9 +12,10 @@
                 <%= f.text_area :description %>
             </div>
 
-            <div class="action">
+            <span class="btn-group pull-right">
                 <%= f.submit %>
-            </div>
+                <%= link_to "Cancel", admin_categories_path,  class:"btn btn-outline-warning btn-lg mt-3 ml-3" %>
+            </span>
         </div>   
     </div>
 <% end %>

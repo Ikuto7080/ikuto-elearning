@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  # before_action :only_loggedin_users
   def index
     @categories = Category.all
   end
