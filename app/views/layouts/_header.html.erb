@@ -1,44 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  
-  <%= link_to "AwesomeBlog", root_path, class: "navbar-brand"%> 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-   <span class="navbar-toggler-icon"></span>
-  </button>
+<nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light mt-0 mb-3" style="background: url(assets/english.jpg); background-seze:cpover">
+    <a class="navbar-brand logo-small" href="/">TOEIC E-learning</a>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mr-4">
+            <li class="nav-item guide">
+                <%= link_to "Home", root_path, class:"nav-link guide-link"%>
+            </li>
+            <li class="nav-item guide">
+                <%= link_to "About", about_path, class:"nav-link guide-link"%>
+            </li>
+            <li class="nav-item guide">
+                <%= link_to "Contact", contact_path, class:"nav-link guide-link"%>
+            </li>
+
+            <% if logged_in? %>
+                <li class="nav-item">
+                    <%= link_to "Admin", admin_categories_path, class:"nav-link"%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Members", users_path, class:"nav-link"%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Logout", logout_path, method: :delete, class:"nav-link"%>
+                </li>
+                <li>
+                    <%= link_to "Profile", current_user, class:"nav-link"%></li>
+                <li>
+                    <%= link_to "Settings", edit_user_path(current_user), class:"nav-link"%>
+                </li>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li>
-       <%= link_to "Home", root_path, class:"nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to "About", about_path, class:"nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Contact", contact_path, class:"nav-link"%>
-      </li>
+            <% else %>
 
-      <% if logged_in? %>
-        <li class="nav-item">
-            <%= link_to "Users", users_path, class:"nav-link"%>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Logout", logout_path, class:"nav-link"%>
-        </li>
-        <li><%= link_to "Profile", current_user, class:"nav-link"%></li>
-        <li>
-            <%= link_to "Settings", edit_user_path(current_user), class:"nav-link"%>
-        </li>
-
-
-      <% else %>
-
-      <li class="nav-item">
-        <%= link_to "Sign Up", signup_path, class: "nav-link"%>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Login", login_path, class: "nav-link"%>
-      </li>
-     <% end %>
-     </div>
+                <li class="nav-item">
+                    <%= link_to "Sign Up", signup_path, class: "nav-link"%>
+                </li>
+                <li class="nav-item">
+                    <%= link_to "Login", login_path, class: "nav-link"%>
+                </li>
+            <% end %>
+        </ul>
+    </div>
 </nav>

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+  namespace :admin do
+    resources :categories 
+  end
+  
   resources :sessions, only: [:new, :create, :destroy]
   get '/login', to: 'sessions#new'
-  get '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 
   root 'static_pages#home'
  

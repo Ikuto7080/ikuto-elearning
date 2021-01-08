@@ -50,9 +50,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
-  def only_loggedin_users
-    redirect_to login_url unless logged_in?
-  end
 
   def correct_user
     @user = User.find(params[:id])

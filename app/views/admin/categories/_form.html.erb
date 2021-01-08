@@ -1,0 +1,21 @@
+<%= form_for [:admin, @category] do |f| %>
+    <%= render 'error_messages' %>
+
+        <div class="row">
+            <div class="field">
+                <%= f.label :title %><br>
+                <%= f.text_field :title %>
+            </div>
+
+            <div class="field">
+                <%= f.label :description %><br>
+                <%= f.text_area :description %>
+            </div>
+
+            <span class="btn-group pull-right">
+                <%= f.submit %>
+                <%= link_to "Cancel", admin_categories_path,  class:"btn btn-outline-warning btn-lg mt-3 ml-3" %>
+            </span>
+        </div>   
+    </div>
+<% end %>

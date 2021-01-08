@@ -19,3 +19,10 @@
 body{
   background-color: $favorite-color;
 }
+
+.navbar-brand{
+background: url("/asests/english.jpg") no-repeat left center;
+background-size: cover;
+height: 10px;
+width: 250px;  
+}
