@@ -1,0 +1,8 @@
+<% if @word.errors.any? %>
+    <p><%= pluralize(@word.errors.count, "error") %></p>
+    <ul>
+        <% @word.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
