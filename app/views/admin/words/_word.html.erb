@@ -1,0 +1,19 @@
+<% @words.each do |word| %>
+    <tr>
+        <td style="width: 800px;">
+            <h3><%= word.word%></h3>
+        </td>
+        <td style="width: 300px;">
+            <h4 class="pull-left mr-3">
+                <%= link_to "Edit Word", edit_admin_category_word_path(@category, word)%>
+            </h4>
+            <h4 class="pull-left">
+                <%= link_to "Del. Word",
+                    admin_category_word_path(@category, word),
+                    method: :delete,
+                    data: { confirm: "Are you sure" }
+                %>
+            </h4>
+        </td>
+    </tr>
+ <% end %>

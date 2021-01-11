@@ -25,11 +25,11 @@
             <tbody>
                 <% @categories.each do |category| %>
                 <tr>
-                    <td style="width: 250px;"><%= link_to category.title, "#"%></td>
+                    <td style="width: 250px;"><%= link_to category.title, admin_category_words_path(category) %></td>
                     <td style="width: 500px;"><%= category.description %></td>
                     <td style="width: 250px;">
                         <h3 class="block">
-                            <%= link_to "New Word", "#" %>
+                            <%= link_to "New Word", new_admin_category_word_path(category) %>
                         </h3>
                         <h3 class="block">
                             <%= link_to "Edit", edit_admin_category_path(category) %>

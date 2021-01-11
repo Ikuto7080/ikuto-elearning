@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  
   namespace :admin do
-    resources :categories 
+    resources :categories do
+      resources :words
+    end
   end
   
   resources :sessions, only: [:new, :create, :destroy]
