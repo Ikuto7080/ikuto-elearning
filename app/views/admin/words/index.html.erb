@@ -1,0 +1,31 @@
+<div class="container main mt-5">
+    <div class="row">
+        <div class="col-md-4 mt-3 mb-3">
+            <h1>
+                <strong><%= @category.title%> Word:Admin</strong>
+            </h1>
+        </div>
+        <div class="col-md-2 mt-3 mb-3">
+            <%= link_to "Add New Word", new_admin_category_word_path(@category), class:"btn btn-info btn-lg"%>
+        </div>
+    </div>
+    <table class="table table-striped tablle-responsive">
+        <thead>
+            <tr>
+                <th>Words</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @category.words.any? %>
+                    <div class="words">
+                        <h3><%= render @words %></h3>
+                    </div>
+                <%= will_paginate @words %>
+            <% end %>
+        </tbody>
+    </table>
+    <h3 class="mt-1 mb-5">
+        <%= link_to "Back to Admin:Category", admin_categories_path, class:"fa fa-arrow-circle-o-left"%>
+    </h3>
+</div>

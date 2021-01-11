@@ -1,10 +1,10 @@
 class Admin::WordsController < ApplicationController
-  before_action :find_category, only: [:show, :create, :edit, :update, :destroy]
+  before_action :find_category, only: [:index, :show, :create, :edit, :update, :destroy]
   def find_category
-    @category = Category.find(params[:category_id])
+    @category = Category.find_by(params[:category_id])
   end
   def index
-    @words = Word.all
+    @words = Word.paginate(page: params[:page], per_page: 10)
   end
 
   def show
@@ -26,18 +26,18 @@ class Admin::WordsController < ApplicationController
   end
 
   def edit
-    @word = @category.words.find(params[:id])
+    @word = @category.words.find_by(params[:id])
   end
 
   def update
     @word = @category.words.find(params[:id])
-    @word.category_id = @category.id
     if @word.update(word_params)
-      redirect_to admin_category_word_path(@word)
+      redirect_to admin_category_word_url(@word)
     else
       render 'edit'
     end
   end
+
 
   def destroy
     @word = @category.words.find(params[:id])  
