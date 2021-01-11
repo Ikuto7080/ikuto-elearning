@@ -4,12 +4,14 @@ class Admin::WordsController < ApplicationController
     @category = Category.find_by(params[:category_id])
   end
   def index
-    @words = Word.paginate(page: params[:page], per_page: 10)
+    # @words = @category.words.paginate(page: params[:page], per_page: 10)
+      @words = Word.all
   end
 
   def show
-    @words = @category.words.paginate(page: params[:page], per_page: 5)
-  end
+    #shows one id
+    @word = Word.find(params[:id])
+end
 
   def new
     @word = Word.new
@@ -17,7 +19,8 @@ class Admin::WordsController < ApplicationController
 
   def create
     @word = @category.words.build(word_params)
-    if @word.save
+
+    if @word.save!
       flash[:success] = "Word created!"
       redirect_to admin_category_word_url(@category, @word)
     else
@@ -48,7 +51,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-   params.require(:word).permit(:word, :category_id)
+   params.require(:word).permit(:name)
   end
 
 
