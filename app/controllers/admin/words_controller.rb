@@ -3,15 +3,12 @@ class Admin::WordsController < ApplicationController
   def find_category
     @category = Category.find_by(params[:category_id])
   end
+
   def index
-    # @words = @category.words.paginate(page: params[:page], per_page: 10)
       @words = Word.all
   end
 
-  def show
-    #shows one id
-    @word = Word.find(params[:id])
-end
+ 
 
   def new
     @word = Word.new
@@ -22,7 +19,7 @@ end
 
     if @word.save!
       flash[:success] = "Word created!"
-      redirect_to admin_category_word_url(@category, @word)
+      redirect_to admin_category_words_path
     else
       render 'new'
     end

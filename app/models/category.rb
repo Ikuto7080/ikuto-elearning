@@ -8,8 +8,7 @@ class Category < ApplicationRecord
   length: { maximum: 100 }
   has_many :words, dependent: :destroy
   
-  def feed
-    Word.where("category_id = ?", id)
-  end
+
+
 end
 
