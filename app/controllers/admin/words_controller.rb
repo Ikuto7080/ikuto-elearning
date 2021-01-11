@@ -1,11 +1,11 @@
 class Admin::WordsController < ApplicationController
-  before_action :find_category, only: [:index, :show, :create, :edit, :update, :destroy]
+  before_action :find_category
   def find_category
-    @category = Category.find_by(params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 
   def index
-      @words = Word.all
+      @words = @category.words
   end
 
  
@@ -32,7 +32,7 @@ class Admin::WordsController < ApplicationController
   def update
     @word = @category.words.find(params[:id])
     if @word.update(word_params)
-      redirect_to admin_category_word_url(@word)
+      redirect_to admin_category_words_path
     else
       render 'edit'
     end
