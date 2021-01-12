@@ -12,6 +12,7 @@ class Admin::WordsController < ApplicationController
 
   def new
     @word = Word.new
+    @word.choices.build
   end
 
   def create
@@ -48,7 +49,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-   params.require(:word).permit(:name)
+   params.require(:word).permit(:name, choices_attributes: [:choices])
   end
 
 
