@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   
+
+
   namespace :admin do
     resources :categories do
-      resources :words
+      resources :words do
+        resources :choices
+      end
     end
   end
   
