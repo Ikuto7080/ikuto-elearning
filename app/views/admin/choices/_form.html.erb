@@ -1,32 +1,37 @@
-<%= form_with(model: choice, local: true) do |form| %>
-  <% if choice.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(choice.errors.count, "error") %> prohibited this choice from being saved:</h2>
+<%#= form_for [:admin, @category, @word, @choice] do |f| %>
+    <div class="field">
+        <%#= render 'error_messages' %>
+        <%#= f.label :correct_answer %><br>
+        <%#= f.text_field :correct_ans %><br>
+        <%#= f.check_box :correct_ans
+        <span>correct answer</span><br>
 
-      <ul>
-      <% choice.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <%#= f.text_field :correct_ans %><br>
+        <%#= f.check_box :correct_ans %>
+        <%# <span>correct answer</span><br> %>
+
+        <%#= f.text_field :correct_ans %><br>
+        <%#= f.check_box :correct_ans %>
+        <%# <span>correct answer</span><br> %>
+           
+        <%#= f.submit "Save" %>
     </div>
-  <% end %>
+<%# end %>
 
-  <div class="field">
-    <%= form.label :choices %>
-    <%= form.text_field :choices %>
-  </div>
-
-  <div class="field">
-    <%= form.label :correct_ans %>
-    <%= form.text_field :correct_ans %>
-  </div>
-
-  <div class="field">
-    <%= form.label :word_id %>
-    <%= form.number_field :word_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= form_for [:admin, @category, @word, @choice] do |f| %>
+    <div class="field">
+        <%= f.text_field :correct_ans %><br>
+        <%= f.check_box :correct_ans, {}, checked_value = "true", unchecked_value="false" %>Correct answer
+    </div>
+    <div class="field">
+        <%= f.text_field :correct_ans %><br>
+        <%= f.check_box :correct_ans, {}, checked_value = "true", unchecked_value="false" %>Correct answer
+    </div>
+    <div class="field">
+        <%= f.text_field :correct_ans %><br>
+        <%= f.check_box :correct_ans, {}, checked_value = "true", unchecked_value="false" %>Correct answer
+    </div>
+     <span class="btn-group pull-right">
+        <%= f.submit "Save"%>
+    </span>
 <% end %>

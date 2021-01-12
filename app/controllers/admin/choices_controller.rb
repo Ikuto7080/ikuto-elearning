@@ -1,74 +1,37 @@
-class ChoicesController < ApplicationController
-  before_action :set_choice, only: [:show, :edit, :update, :destroy]
+class Admin::ChoicesController < ApplicationController
+  before_action :find_category_word
 
-  # GET /choices
-  # GET /choices.json
+  def find_category_word
+    @category = Category.find(params[:category_id])
+    @word = @category.words.find(params[:word_id])
+  end
+
   def index
-    @choices = Choice.all
   end
 
-  # GET /choices/1
-  # GET /choices/1.json
-  def show
-  end
-
-  # GET /choices/new
   def new
     @choice = Choice.new
   end
 
-  # GET /choices/1/edit
-  def edit
-  end
-
-  # POST /choices
-  # POST /choices.json
   def create
-    @choice = Choice.new(choice_params)
-
-    respond_to do |format|
-      if @choice.save
-        format.html { redirect_to @choice, notice: 'Choice was successfully created.' }
-        format.json { render :show, status: :created, location: @choice }
-      else
-        format.html { render :new }
-        format.json { render json: @choice.errors, status: :unprocessable_entity }
-      end
+    @choice = @word.choices.build(choice_params)
+    if params[:correct_ans] == 'true'
+        if @choice.save
+          redirect_to admin_category_words_path
+        else
+          render 'new'
+        end
+    else 
+      redirect_to admin_category_words_path
     end
   end
 
-  # PATCH/PUT /choices/1
-  # PATCH/PUT /choices/1.json
-  def update
-    respond_to do |format|
-      if @choice.update(choice_params)
-        format.html { redirect_to @choice, notice: 'Choice was successfully updated.' }
-        format.json { render :show, status: :ok, location: @choice }
-      else
-        format.html { render :edit }
-        format.json { render json: @choice.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  def edit
 
-  # DELETE /choices/1
-  # DELETE /choices/1.json
-  def destroy
-    @choice.destroy
-    respond_to do |format|
-      format.html { redirect_to choices_url, notice: 'Choice was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_choice
-      @choice = Choice.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def choice_params
-      params.require(:choice).permit(:choices, :correct_ans, :word_id)
-    end
+  def choice_params
+    params.require(:choice).permit(:correct_ans)
+  end
 end
