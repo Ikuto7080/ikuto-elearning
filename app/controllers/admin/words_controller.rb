@@ -11,13 +11,14 @@ class Admin::WordsController < ApplicationController
  
 
   def new
-    @word = Word.new
-    @word.choices.build
+    @word = @category.words.build
+    3.times do
+      @word.choices.build
+    end
   end
 
   def create
     @word = @category.words.build(word_params)
-
     if @word.save!
       flash[:success] = "Word created!"
       redirect_to admin_category_words_path
@@ -49,7 +50,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-   params.require(:word).permit(:name, choices_attributes: [:choices])
+   params.require(:word).permit(:name, choices_attributes: [:content])
   end
 
 

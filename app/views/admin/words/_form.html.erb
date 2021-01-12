@@ -11,9 +11,7 @@
     <div class="col-md-4">
 
         <%= f.fields_for :choices do |c| %>
-                    <%= c.text_field :choices, class:"form-control" %><br>
-                    <%= c.text_field :choices, class:"form-control" %><br>
-                    <%= c.text_field :choices, class:"form-control" %>
+                    <%= c.text_field :content, class:"form-control" %><br>
                     <%#= choice.hidden_field :id, value: @word.id %>
         <% end %>
     </div>
