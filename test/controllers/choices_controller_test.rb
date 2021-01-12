@@ -1,34 +1,18 @@
 require 'test_helper'
 
 class ChoicesControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @choice = choices(:one)
-  end
-
   test "should get index" do
-    get choices_url
+    get choices_index_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_choice_url
-    assert_response :success
-  end
-
-  test "should create choice" do
-    assert_difference('Choice.count') do
-      post choices_url, params: { choice: { choices: @choice.choices, correct_ans: @choice.correct_ans, word_id: @choice.word_id } }
-    end
-
-    assert_redirected_to choice_url(Choice.last)
-  end
-
-  test "should show choice" do
-    get choice_url(@choice)
+    get choices_new_url
     assert_response :success
   end
 
   test "should get edit" do
+<<<<<<< HEAD
     get edit_choice_url(@choice)
     assert_response :success
   end
@@ -45,4 +29,10 @@ class ChoicesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to choices_url
   end
+=======
+    get choices_edit_url
+    assert_response :success
+  end
+
+>>>>>>> daf2e205ee3cf838ce7b3551f459031db470a272
 end
