@@ -1,17 +1,17 @@
 <div class="row">
     <%= form_for [:admin, :category, @word] do |f| %>
         <div class="col-md-4">
-                <%= render "error_messages"%>
-                    <div class="field">
-                        <%= f.label :Word %><br>
-                        <%= f.text_field :name, class:"form-control" %><br>
-                    </div>
+            <%= render "error_messages"%>
+                <div class="field">
+                    <%= f.label :Word %><br>
+                    <%= f.text_field :name, class:"form-control" %><br>
+                </div>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-4">
             <%= f.fields_for :choices do |c| %>
-                        <%= c.text_field :content, class:"form-control" %><br>
-                        <%#= choice.hidden_field :id, value: @word.id %>
+                <%= c.text_field :content, class:"form-control" %><br>
+                <%= c.check_box :correct_ans, {}, checked_value = "true", unchecked_value = "false" %>correct answer
             <% end %>
         </div>
         <div class="btn-group pull-right">
