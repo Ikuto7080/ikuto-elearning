@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 2021_01_11_100604) do
 
   create_table "choices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
-    t.string "correct_ans"
     t.integer "word_id"
+    t.boolean "correct_ans", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

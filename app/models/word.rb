@@ -5,4 +5,17 @@ class Word < ApplicationRecord
   has_many :choices, dependent: :destroy
   accepts_nested_attributes_for :choices
 
+  validate :only_one_correct_answer
+
+  private
+
+  def only_one_correct_answer
+    correct_counter = choices.collect{|c| c.correct_ans }.count(true)
+    if correct_counter >= 2
+      errors.add(:choice, 'Must have only one correct answer')
+    elsif correct_counter == 0
+      errors.add(:choice, 'Must have one correct answer')
+    end 
+  end
+  
 end

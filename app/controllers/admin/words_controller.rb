@@ -17,40 +17,15 @@ class Admin::WordsController < ApplicationController
     end
   end
 
-  # def create
-  #   @word = @category.words.build(word_params)
-  #   if choices_attributes[:correct_ans] == 'true'
-  #     choices_attributes[:correct_ans] = choices_attributes[:content] 
-  #     if @word.save!
-  #     flash[:success] = "Word created!"
-  #     redirect_to admin_category_words_path
-  #     else
-  #       render 'new'
-  #     end
-  #   else 
-  #     if @word.save!
-  #       flash[:success] = "Word created!"
-  #       redirect_to admin_category_words_path
-  #     else
-  #       render 'new'
-  #     end
-  #   end
-  # end
-
-
   def create
-    @cword = @category.words.build(word_params)
-    if params[:correct_ans] == 'true'
-        if @choice.save
-          redirect_to admin_category_words_path
-        else
-          render 'new'
-        end
-    else 
+    @word = @category.words.build(word_params)
+    if @word.save!
+      flash[:success] = "Word created!"
       redirect_to admin_category_words_path
+    else
+      render 'new'
     end
   end
-
 
   def edit
     @word = @category.words.find_by(params[:id])
