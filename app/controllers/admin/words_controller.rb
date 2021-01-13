@@ -50,7 +50,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-   params.require(:word).permit(:name, choices_attributes: [:content])
+   params.require(:word).permit(:name, choices_attributes: [:content, :correct_ans])
   end
 
 

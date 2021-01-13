@@ -2,10 +2,10 @@
 
 one:
   choices: MyString
-  corret_ans: MyString
+  correct_ans: MyString
   word_id: 1
 
 two:
   choices: MyString
-  corret_ans: MyString
+  correct_ans: MyString
   word_id: 1
