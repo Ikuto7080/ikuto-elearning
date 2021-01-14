@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_01_11_093849) do
+=======
 ActiveRecord::Schema.define(version: 2021_01_11_100604) do
+>>>>>>> daf2e205ee3cf838ce7b3551f459031db470a272
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
