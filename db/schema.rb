@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_01_11_093849) do
-=======
-ActiveRecord::Schema.define(version: 2021_01_11_100604) do
->>>>>>> daf2e205ee3cf838ce7b3551f459031db470a272
+ActiveRecord::Schema.define(version: 2021_01_13_093809) do
+
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "lesson_id"
+    t.integer "choices_id"
+    t.integer "word_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
