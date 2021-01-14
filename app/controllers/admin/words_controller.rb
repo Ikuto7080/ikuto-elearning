@@ -28,7 +28,7 @@ class Admin::WordsController < ApplicationController
   end
 
   def edit
-    @word = @category.words.find_by(params[:id])
+    @word = @category.words.find(params[:id])
   end
 
   def update
