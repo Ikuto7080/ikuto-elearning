@@ -7,6 +7,12 @@ class LessonsController < ApplicationController
   end
 
   def create
+    @lesson = Lesson.new
+    if @lesson.save
+      redirect_to new_category_lesson_answer_path(@category, @lesson)
+    else
+      redirect_to category_lesson_path(@category, @lesson)
+    end
   end
 
   def show

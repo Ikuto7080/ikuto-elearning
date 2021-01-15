@@ -2,7 +2,7 @@
     <div class="row">
         <div class="cool-md-12 mt-3">
             <h1>
-                <strong>Lessons〈〉</strong>
+                <strong>Lessons〈<%= @categories.count %>〉</strong>
             </h1>
             <div class="container">
                 <ul class="nav nav-tabs">
@@ -28,7 +28,7 @@
                             <hr>
                             <h3 class="mb-5"><%= category.description %></h3>
                             <div class="text-center">
-                                <%= render 'lessons/new' %>
+                                <%= render 'lessons/new', category:category %>
                             </div>
                         </div>
                     <% end %>

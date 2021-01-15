@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories do
-    resources :lessons do
+  resources :categories, only: [:index] do
+    resources :lessons, only: [:new, :create, :show] do
       resources :answers
     end
   end
