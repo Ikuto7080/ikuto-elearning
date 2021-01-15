@@ -1,8 +1,6 @@
 class Admin::WordsController < ApplicationController
   before_action :find_category
-  def find_category
-    @category = Category.find(params[:category_id])
-  end
+
 
   def index
       @words = @category.words
