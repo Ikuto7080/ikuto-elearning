@@ -1,0 +1,45 @@
+<div class="container main mt-5">
+    <div class="row">
+        <div class="col-md-12 mt-3">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1>
+                        <strong>Lesson: <%= @category.title %></strong>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contaier">
+        <div class="row ml-5 mb-5">
+            <div class="col-md-10 bg-light" style="height:450p; width: 500px;">
+                <h2 class="pt-5 pl-5">
+                    <strong>No. 1</strong>
+                    of 1
+                </h2>
+                <div class="row ml-5 mr-5">
+                    <% form_for [:category, @word] do |f| %>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-3 ml-5 mr-5">
+                            <div class="text-center">
+                                <div class="field">
+                                    <%= f.label @category.words.content %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-4 mt-5 ml-5">
+                            <h3>
+                                <strong>Choices</strong>
+                            </h3>
+                            <% @choices.each do |c| %>
+                            <%= f.submits c.content %>
+                            <%= hidden_field_tag :current_user.id %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
