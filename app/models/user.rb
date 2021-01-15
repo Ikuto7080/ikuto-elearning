@@ -6,5 +6,8 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, length: { minimum: 6}
 
+  has_many :lessons, dependent: :destroy
+  has_many :categories, through: :lessons
+
   
 end

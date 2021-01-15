@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories do
+    resources :lessons do
+      resources :answers
+    end
+  end
+
   
   
   resources :sessions, only: [:new, :create, :destroy]

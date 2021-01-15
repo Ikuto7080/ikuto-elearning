@@ -1,0 +1,39 @@
+<div class="container main mt-5">
+    <div class="row">
+        <div class="cool-md-12 mt-3">
+            <h1>
+                <strong>Lessons〈〉</strong>
+            </h1>
+            <div class="container">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <%= link_to "All", "#", class:"nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Learned", "#", class:"nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Not Learned", "#", class:"nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Getting Ready", "#", class:"nav-link" %>
+                    </li>
+                </ul>
+                <div class="col-md-4 mb-3 mt-3">
+                    <% @categories.each do |category| %>
+                        <div class="lesson-box">
+                            <h2>
+                                <strong><%= category.title %></strong>
+                            </h2>
+                            <hr>
+                            <h3 class="mb-5"><%= category.description %></h3>
+                            <div class="text-center">
+                                <%= render 'lessons/new' %>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
