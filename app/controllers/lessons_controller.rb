@@ -16,5 +16,7 @@ class LessonsController < ApplicationController
   end
 
   def show
+
+
   end
 end

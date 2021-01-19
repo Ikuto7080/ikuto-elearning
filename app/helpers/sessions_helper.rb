@@ -30,4 +30,8 @@ module SessionsHelper
     @category = Category.find(params[:category_id])
   end
 
+  def is_finished(category)
+    @lesson = category.lessons.find_by(params[:category_id])
+  end
+
 end
