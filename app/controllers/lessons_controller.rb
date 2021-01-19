@@ -3,20 +3,22 @@ class LessonsController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
-    @lesson = Lesson.new
+    @lesson = @category.lessons.build
   end
 
   def create
-    @lesson = Lesson.new
+    @lesson = Lesson.new(lessons_params)
     if @lesson.save
-      redirect_to new_category_lesson_answer_path(@category, @lesson)
-    else
-      redirect_to category_lesson_path(@category, @lesson)
+    redirect_to new_category_lesson_answer_url(@category, @lesson) 
     end
   end
 
   def show
+    @words = Word.all
+  end
 
-
+  private
+  def lessons_params
+    params.permit(:category_id).merge(user_id: current_user.id)
   end
 end

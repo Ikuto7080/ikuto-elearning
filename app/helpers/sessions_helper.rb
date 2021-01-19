@@ -31,7 +31,7 @@ module SessionsHelper
   end
 
   def is_finished(category)
-    @lesson = category.lessons.find_by(params[:category_id])
+     Lesson.find_by(category_id: category.id, user_id: current_user.id)
   end
 
 end

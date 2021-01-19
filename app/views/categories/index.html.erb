@@ -31,7 +31,7 @@
 
                                 <%#= render 'lessons/new', category:category %>
                                 <% if is_finished(category).nil? %>
-                                    <%= render 'lessons/form', category:category %>
+                                    <%= render 'form', category:category %>
                                 <% else %>
                                     <%=  link_to "See Results", category_lesson_path(category, is_finished(category))%>
                                 <% end %>
