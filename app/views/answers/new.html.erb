@@ -18,26 +18,7 @@
                     of 1
                 </h2>
                 <div class="row ml-5 mr-5">
-                    <%# form_for [:category, @word] do |f| %>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-3 ml-5 mr-5">
-                            <div class="text-center">
-                                <div class="field">
-                                    <%#= f.label @category.words.content %>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-4 mt-5 ml-5">
-                            <h3>
-                                <strong>Choices</strong>
-                            </h3>
-                            <%# @choices.each do |c| %>
-                            <%#= f.submits c.content %>
-                            <%#= hidden_field_tag :current_user.id %>
-                            <%# end %>
-                        </div>
-                    <%# end %>
+                    <%= render 'form'%>
                 </div>
             </div>
         </div>

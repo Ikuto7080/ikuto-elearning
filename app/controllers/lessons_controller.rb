@@ -9,13 +9,15 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lessons_params)
     if @lesson.save
-    redirect_to new_category_lesson_answer_url(@category, @lesson) 
+      redirect_to new_category_lesson_answer_url(@category, @lesson) 
     end
   end
+
 
   def show
     @words = Word.all
   end
+
 
   private
   def lessons_params
