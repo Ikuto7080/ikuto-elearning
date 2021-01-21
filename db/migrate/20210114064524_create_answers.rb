@@ -7,5 +7,9 @@ class CreateAnswers < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+
+    add_index :answers, [:word_id, :created_at]
+    add_index :answers, [:choice_id, :created_at]
+    add_index :answers, [:lesson_id, :created_at]
   end
 end

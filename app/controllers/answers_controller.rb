@@ -11,6 +11,7 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @lesson = Lesson.find(params[:lesson_id])
     @answer = Answer.new(answer_params)
     if @answer.save
       redirect_to category_lesson_url(@category, @lesson)
@@ -19,6 +20,6 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:word_id, :choice_id)
+    params.permit(:word_id, :choice_id, :lesson_id)
   end
 end

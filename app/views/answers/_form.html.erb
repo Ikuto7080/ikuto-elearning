@@ -1,12 +1,11 @@
 <%= form_for([@category, @lesson, @answer]) do |f| %>
-<%= hidden_field_tag :word_id, word.id %>
-<%= hidden_field_tag :choice_id, choice.id %>
     <div class="col-md-1"></div>
         <div class="col-md-3 ml-5 mr-5">
             <div class="text-center">
-                <%= will_paginate @words %>
+                <% will_paginate @words %>
                 <div class="field">
                     <% @words.each do |word| %>
+                    <%= hidden_field_tag :word_id, word.id %>
                         <%= f.label word.name%>
                         <div class="col-md-1"></div>
                         <div class="col-md-4 mt-5 ml-5">
@@ -14,6 +13,7 @@
                                 <strong>Choices</strong>
                             </h3>
                             <% word.choices.each do |choice| %>
+                            <%= hidden_field_tag :choice_id, choice.id %>
                                 <div class="btn-group pull-right">
                                     <%= f.submit choice.content, class:"btn btn-lg mt-5 mr-3"%>
                                 </div>
@@ -25,3 +25,4 @@
         </div>
     </div>
 <% end %>
+<%= hidden_field_tag :page, @words.next_page %>

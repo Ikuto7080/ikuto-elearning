@@ -15,7 +15,10 @@ class LessonsController < ApplicationController
 
 
   def show
-    @words = Word.all
+    @lesson = Lesson.find(params[:id])
+    @answers = @lesson.answers
+    @category = Category.find(params[:category_id])
+    @words = @category.words
   end
 
 
