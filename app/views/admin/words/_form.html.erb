@@ -8,7 +8,7 @@
             <%= f.fields_for :choices do |c| %>
             <div class="form-group form-check">
                 <%= c.text_field :content, class:"form-check-input"%><br>
-                <%= c.check_box :correct_ans, class:"form-check-label mt-4"%>correct answer
+                <%= c.check_box :correct_ans, class:"form-check-label mt-4", style:"width: 30px; height: 30px;"%><span class="ml-1">correct answer</span>
             </div>
             <% end %>
         <div class="btn-group pull-right">

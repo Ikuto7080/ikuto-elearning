@@ -32,9 +32,3 @@
   font-family: 'Marvel', sans-serif;
   font-size: 20px;
 }
-
-@import 'compass';
-
-input[type=checkbox] {
-  @include scale(1.5);
-}

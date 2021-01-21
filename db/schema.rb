@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2021_01_14_065815) do
     t.integer "word_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["choice_id", "created_at"], name: "index_answers_on_choice_id_and_created_at"
+    t.index ["lesson_id", "created_at"], name: "index_answers_on_lesson_id_and_created_at"
+    t.index ["word_id", "created_at"], name: "index_answers_on_word_id_and_created_at"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
