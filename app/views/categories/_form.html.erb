@@ -1,6 +1,6 @@
 <%= form_for([category, @lesson]) do |f| %>
     <%= hidden_field_tag :current_user, current_user.id %>
     <div class="btn-group pull-right">
-        <%= f.submit "Let's Start!", class:"btn btn-warning mt-4 btn-lg"%>
+        <%= f.submit "Let's Start!", class:"btn btn-warning mt-4 btn-lg" %>
     </div>
 <% end %>

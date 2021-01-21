@@ -4,7 +4,6 @@ class CreateAnswers < ActiveRecord::Migration[5.2]
       t.integer :lesson_id, foreign_key: true
       t.integer :choice_id, foreign_key: true
       t.integer :word_id, foreign_key: true
-
       t.timestamps
     end
 
