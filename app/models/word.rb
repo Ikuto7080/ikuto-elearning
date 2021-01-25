@@ -9,6 +9,10 @@ class Word < ApplicationRecord
 
   validate :only_one_correct_answer
 
+  def word_choices
+    choices.find_by(correct_ans: true).content
+  end
+  
   private
 
   def only_one_correct_answer
@@ -19,5 +23,7 @@ class Word < ApplicationRecord
       errors.add(:choice, 'Must have one correct answer')
     end 
   end
+
+
   
 end

@@ -14,6 +14,7 @@ class AnswersController < ApplicationController
     @lesson = Lesson.find(params[:lesson_id])
     @word = @category.words.find(params[:word_id])
     @answers = @lesson.answers.build(answer_params)
+    
 
     if @lesson.save
       unless params[:page].empty?
@@ -25,7 +26,6 @@ class AnswersController < ApplicationController
             result += 1
           end # The end of if 
           @lesson.update_attributes(:result =>result, :is_completed => true)
-          @lesson.create_activity(user_id: current_user.id)
         end # end of each do
         redirect_to category_lesson_url(@category, @lesson)
       end # end of unless
