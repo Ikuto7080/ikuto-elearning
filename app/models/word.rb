@@ -5,6 +5,8 @@ class Word < ApplicationRecord
   has_many :choices, dependent: :destroy
   accepts_nested_attributes_for :choices
 
+  has_many :answers, dependent: :destroy
+
   validate :only_one_correct_answer
 
   private
