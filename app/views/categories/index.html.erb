@@ -28,7 +28,12 @@
                             <hr>
                             <h3 class="mb-5"><%= category.description %></h3>
                             <div class="text-center">
-                                <%= render 'lessons/new', category:category %>
+                                <% if is_finished(category).nil? %>
+                                    <%= render 'form', category:category %>
+                                <% else %>
+                                    <%=  link_to "See Results", category_lesson_path(category, is_finished(category))%>
+                                <% end %>
+
                             </div>
                         </div>
                     <% end %>

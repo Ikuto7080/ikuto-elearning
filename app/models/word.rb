@@ -2,11 +2,19 @@ class Word < ApplicationRecord
   validates :name, uniqueness: true, presence: true
   belongs_to :category
 
+  
+
   has_many :choices, dependent: :destroy
   accepts_nested_attributes_for :choices
 
+  has_many :answers, dependent: :destroy
+
   validate :only_one_correct_answer
 
+  def word_choices
+    choices.find_by(correct_ans: true).content
+  end
+  
   private
 
   def only_one_correct_answer
@@ -17,5 +25,7 @@ class Word < ApplicationRecord
       errors.add(:choice, 'Must have one correct answer')
     end 
   end
+
+
   
 end

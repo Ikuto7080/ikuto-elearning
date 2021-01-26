@@ -1,9 +1,25 @@
 
 <% provide(:title, 'Home')%>
-    <h1 style="text-align:center;">Awesome Blog</h1>
-    <p>
-        Welcome to Awesome Blog!<br>
-    </p>
-    <p>
-        This Blog is made for all people who want to get good shape of the body!!
-    </p>
+<!------ Include the above in your HEAD tag ---------->
+<div class="sidenav">
+         <div class="login-main-text">
+            <h2>Do you want to improve your TOEIC score?<br> </h2>
+            <p>Login from here to access.</p>
+         </div>
+      </div>
+      <div class="main">
+         <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+               <%= form_for(:session, url: sessions_path) do |f| %>
+                  <%= f.label :email %>
+                  <%= f.text_field :email, class: "form-control" %>
+
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: "form-control" %>
+
+                  <%= f.submit "Login", class: "btn btn-block btn-primary" %>
+               <% end %>
+               <p>New here? <%= link_to "just sign up! now!", signup_path %></p>
+            </div>
+         </div>
+      </div>
