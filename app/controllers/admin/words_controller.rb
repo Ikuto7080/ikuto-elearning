@@ -17,7 +17,7 @@ class Admin::WordsController < ApplicationController
 
   def create
     @word = @category.words.build(word_params)
-    if @word.save!
+    if @word.save
       flash[:success] = "Word created!"
       redirect_to admin_category_words_path
     else
