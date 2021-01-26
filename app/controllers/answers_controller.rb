@@ -12,11 +12,8 @@ class AnswersController < ApplicationController
 
   def create
     @lesson = Lesson.find(params[:lesson_id])
-    @word = @category.words.find(params[:word_id])
-    @answers = @lesson.answers.build(answer_params)
-    
-
-    if @lesson.save
+    @answer = Answers.build(answer_params)
+    if @lesson.save!
       unless params[:page].empty?
         redirect_to new_category_lesson_answer_url(@category, @lesson, page: params[:page])
       else

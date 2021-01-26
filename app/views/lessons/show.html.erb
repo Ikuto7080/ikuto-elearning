@@ -26,12 +26,12 @@
                         <tr>
                             <th></th>
                             <th>Words</th>
-                            <th>Answers</th>
+                            <th>Your answers</th>
                             <th>Correct answers</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <<% @answers.each do |answer| %>
+                        <% @answers.each do |answer| %>
                             <tr>
                                 <td class="answer_judge" style="width: 210px;">
                                     <h3 class="text-center">
@@ -41,14 +41,10 @@
                                 <td style="width: 400px;">
                                     <h3><%= answer.word.name%></h3>
                                 </td>
-                                <td style="width: 400px;"><h3><%= answer.word.word_choices %></h3></td>
                                 <td style="width: 400px;">
-                                    <% if answer.choice.content == answer.word.word_choices %>
-                                    <h3>〇</h3>
-                                    <% else %>
-                                    <h3>X</h3>
-                                    <% end %>
+                                    <h3><%= answer.choice.content %></h3>
                                 </td>
+                                <td style="width: 400px;"><h3><%= answer.word.word_choices %></h3></td>
                             </tr>
                         <% end %>
                     </tbody>
