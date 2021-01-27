@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
   
-  get '/dashboard', to: 'dashboard#home'
+  #For follow and unfollow
   resources :relationships, only: [:create, :destroy]
+
   resources :users do
     member do
       get :following, :followers

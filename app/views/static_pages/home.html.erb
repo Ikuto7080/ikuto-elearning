@@ -2,30 +2,7 @@
 <% provide(:title, 'Home')%>
 <!------ Include the above in your HEAD tag ---------->
 <% if logged_in? %>
-    <div class="sidenav">
-        <div class="login-main-text">
-            <h2>Do you want to improve your TOEIC score?<br> </h2>
-            <p>Login from here to access.</p>
-        </div>
-    </div>
-    <div class="main">
-    <div class="col-md-6 col-sm-12">
-        <div class="login-form">
-            <%= form_for(:session, url: sessions_path) do |f| %>
-            <%= f.label :email %>
-            <%= f.text_field :email, class: "form-control" %>
-
-            <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control" %>
-
-            <%= f.submit "Login", class: "btn btn-block btn-primary" %>
-            <% end %>
-            <p>New here? <%= link_to "just sign up! now!", signup_path %></p>
-            </div>
-        </div>
-    </div>
-<% else %>
-    <div class="container main mt-5 mb-5">
+ <div class="container main mt-5 mb-5">
     <div class="row">
         <div class="col-md-4 mt-3">
             <div class="row">
@@ -76,5 +53,28 @@
         </div>
     </div>
 </div>
+<% else %>
+    <div class="sidenav">
+        <div class="login-main-text">
+            <h2>Do you want to improve your TOEIC score?<br> </h2>
+            <p>Login from here to access.</p>
+        </div>
+    </div>
+    <div class="main">
+        <div class="col-md-6 col-sm-12">
+            <div class="login-form">
+                <%= form_for(:session, url: sessions_path) do |f| %>
+                <%= f.label :email %>
+                <%= f.text_field :email, class: "form-control" %>
+
+                <%= f.label :password %>
+                <%= f.password_field :password, class: "form-control" %>
+
+                <%= f.submit "Login", class: "btn btn-block btn-primary" %>
+                <% end %>
+                <p>New here? <%= link_to "just sign up! now!", signup_path %></p>
+            </div>
+        </div>
+    </div>
 
 <% end %>
