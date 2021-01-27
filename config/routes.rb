@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
 
   
+  get '/dashboard', to: 'dashboard#home'
+  resources :relationships, only: [:create, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   namespace :admin do
     resources :categories do

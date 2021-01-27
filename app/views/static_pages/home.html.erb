@@ -1,25 +1,80 @@
 
 <% provide(:title, 'Home')%>
 <!------ Include the above in your HEAD tag ---------->
-<div class="sidenav">
-         <div class="login-main-text">
+<% if logged_in? %>
+    <div class="sidenav">
+        <div class="login-main-text">
             <h2>Do you want to improve your TOEIC score?<br> </h2>
             <p>Login from here to access.</p>
-         </div>
-      </div>
-      <div class="main">
-         <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <%= form_for(:session, url: sessions_path) do |f| %>
-                  <%= f.label :email %>
-                  <%= f.text_field :email, class: "form-control" %>
+        </div>
+    </div>
+    <div class="main">
+    <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+            <%= form_for(:session, url: sessions_path) do |f| %>
+            <%= f.label :email %>
+            <%= f.text_field :email, class: "form-control" %>
 
-                  <%= f.label :password %>
-                  <%= f.password_field :password, class: "form-control" %>
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control" %>
 
-                  <%= f.submit "Login", class: "btn btn-block btn-primary" %>
-               <% end %>
-               <p>New here? <%= link_to "just sign up! now!", signup_path %></p>
+            <%= f.submit "Login", class: "btn btn-block btn-primary" %>
+            <% end %>
+            <p>New here? <%= link_to "just sign up! now!", signup_path %></p>
             </div>
-         </div>
-      </div>
+        </div>
+    </div>
+<% else %>
+    <div class="container main mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-4 mt-3">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1><strong>Dashboard</strong></h1>
+                </div>
+            </div>
+            <hr>
+            <div class="media">
+                <div class="img m-2">
+                    <%= gravatar_for @user %>
+                </div>
+                <div class="medea-body m-2">
+                    <h2>
+                        <strong>
+                            <%= link_to @user.name, "#"%>
+                        </strong>
+                    </h2>
+                    <h4>@Trans Dept.</h4>
+                    <hr>
+                    <h3>~ Words Learned</h3>
+                </div>
+            </div>
+            <hr>
+            <p class="pull-left">
+                <%=link_to "Go to Learned Words", "#" %>
+                <i class="fa fa-arrow-circle-o-right"></i>
+            </p>
+
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-7 mb-5">
+            <div class="container balloon1-left">
+                <h2 class="mt-2">
+                    <i class="fa fa-book"></i>
+                    <strong>Recent Activity</strong>
+                </h2>
+                <hr>
+                <div class="media ml-3">
+                    <div class="img m-2 align-self-center">
+                        <%= gravatar_for @user %>
+                    </div>
+                    <div class="media-body m-2 pr-5">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% end %>
