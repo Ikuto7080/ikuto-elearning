@@ -18,7 +18,7 @@
                 <div class="medea-body m-2">
                     <h2>
                         <strong>
-                            <%= link_to @user.name, "#"%>
+                            <%= link_to @user.name, @user%>
                         </strong>
                     </h2>
                     <h4>@Trans Dept.</h4>
@@ -46,7 +46,7 @@
                         <%= gravatar_for @user %>
                     </div>
                     <div class="media-body m-2 pr-5">
-                        
+                        <%= link_to @user.name, @user %>
                     </div>
                 </div>
             </div>

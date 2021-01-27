@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  
+    
+  get '/dashboard', to: 'activities#show'
   #For follow and unfollow 
   resources :relationships, only: [:create, :destroy]
 
