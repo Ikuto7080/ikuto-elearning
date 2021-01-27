@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   
-  #For follow and unfollow
+  #For follow and unfollow 
   resources :relationships, only: [:create, :destroy]
 
   resources :users do
