@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index] do
     resources :lessons, only: [:new, :create, :show] do
-      resources :answers
+      resources :answers, only: [:new, :create]
     end
   end
 

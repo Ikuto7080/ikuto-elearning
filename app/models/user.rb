@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :lessons, dependent: :destroy
 
+  has_many :activities, dependent: :destroy
+
   
     
     # Followed Users
@@ -39,6 +41,9 @@ class User < ApplicationRecord
       active_relationships.find_by(followed_id: other_user.id).destroy
     end
 
+    def feed
+      Activity.where("user_id = ?", id)      
+    end
 
   
 end

@@ -1,0 +1,9 @@
+<li>
+    in
+    <span>
+        <%= link_to activity.action.category.title,  category_lesson_url(activity.action.category_id, activity.action.id) %>
+    </span>
+    <span class="temestamp"><br>
+        Posted <%= time_ago_in_words(activity.created_at) %> ago.
+    </span>
+</li>

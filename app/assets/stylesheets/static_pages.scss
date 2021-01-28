@@ -79,3 +79,27 @@ body {
   background-color: #000 !important;
   color: #fff;
 }
+
+.balloon1-left {
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 15px 1.5em 15px;
+    padding: 7px 10px;
+    height: 95%;
+    min-width: 120px;
+    max-width: 80%;
+    color: #555;
+    font-size: 16px;
+    background: #e0edff;
+    border-radius: 15px;
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}

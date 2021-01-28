@@ -46,7 +46,17 @@
                         <%= gravatar_for @user %>
                     </div>
                     <div class="media-body m-2 pr-5">
-                        <%= link_to @user.name, @user %>
+                        <% if @activities.any? %>
+                            <p>
+                                <%= current_user.name %>
+                                <ol class="activities">
+                                    <%= render @activities %>
+                                </ol>
+                                <%= will_paginate @activities %>
+                            </p>
+                        <% else %>
+                            <h3>No activities</h3>
+                        <% end %>
                     </div>
                 </div>
             </div>

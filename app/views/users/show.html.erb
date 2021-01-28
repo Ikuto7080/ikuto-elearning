@@ -5,7 +5,7 @@
         <div class="col-md-3 mt-3">
             <div class="row">
                 <div class="col-md-12">
-                    <h1><strong>Profile</strong></h1>
+                    <h1><strong>Dashboard</strong></h1>
                 </div>
                 <div class="col-md-4">
                     <%= link_to "Edit",edit_user_path(@user)%>
@@ -32,10 +32,20 @@
                 </h2>
                 <hr>
                 <div class="media ml-3">
-                    <%= gravatar_for @user %>
-                </div>
-                <div class="media-body m-2 pr-5">
-                
+                    <div class="img m-2 align-self-center">
+                        <%= gravatar_for @user %>
+                    </div>
+                    <div class="media-body m-2 pr-5">
+                        <% if @activities.any? %>
+                            <p>
+                                <%= current_user.name %>
+                                <ol class="activities">
+                                    <%= render @activities %>
+                                </ol>
+                                <%= will_paginate @activities %>
+                            </p>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,14 +84,14 @@
                             <div class="col-md-6 center-block mt-2 mb-1">
                                 <%= render 'shared/stats' %>
                             </div>
-                            <%= render 'follow_form' if logged_in? %>
+                            <div class="col-md-12">
+                                <%= render 'follow_form' if logged_in? %>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        
-            <div class="col-md-2"></div>
-            <div class="col-md-7 mb-5">
+            <div class="col-md-7 mb-5 ml-4">
                 <div class="container balloon1-left mb-5">
                     <h2 class="mt-2">
                         <i class="fa fa-book"></i>
@@ -89,18 +99,29 @@
                     </h2>
                     <hr>
                     <div class="media ml-3">
-                        <%= gravatar_for @user %>
+                        <div class="img m-2 align-self-center">
+                            <%= gravatar_for @user %>
+                        </div>
+                        <div class="media-body m-2 pr-5">
+                            <% if @activities.any? %>
+                                <p>
+                                    <%= current_user.name %>
+                                    <ol class="activities">
+                                        <%= render @activities %>
+                                    </ol>
+                                    <%= will_paginate @activities %>
+                                </p>
+                            <% else %>
+                               <h3>No activities</h3>
+                            <% end %>
+                        </div>
                     </div>
-                    <div class="media-body m-2 pr-5">
-                    
+                        <%= will_paginate @activities %>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
+                </div> <%# end of container %>
+            </div> <%# end of col-md-7%>
+        </div> <%#end of row %>
+    </div> <%# end of container%>
     <div class="row">
         <aside class="span">
             <section>
