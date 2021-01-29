@@ -1,0 +1,15 @@
+<li>
+    <div class="media ml-3">
+        <div class="img m-2 align-self-center">
+            <%= gravatar_for @user %>
+        </div>
+        <div class="media-body m-2 pr-5">
+            <p class="activity-text pb-0 mb-0" style="font-size: 15px;">
+            <%= link_to @user.name, @user %> Learned <%= link_to activity.action.category.title,  category_lesson_url(activity.action.category_id, activity.action.id) %>
+            </p>
+            <small style="font-size: 15px;">
+            Posted <%= time_ago_in_words(activity.created_at) %> ago.
+            </small>
+        </div>
+    </div>
+</li>

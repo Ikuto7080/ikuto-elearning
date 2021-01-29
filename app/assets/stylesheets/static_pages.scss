@@ -13,7 +13,6 @@ body {
 .main-head{
   height: 150px;
   background: #FFF;
- 
 }
 
 .sidenav {
@@ -34,33 +33,33 @@ body {
 
 @media screen and (max-width: 450px) {
   .login-form{
-      margin-top: 10%;
+    margin-top: 10%;
   }
 
   .register-form{
-      margin-top: 10%;
-  }
+    margin-top: 10%;
+  }   
 }
 
 @media screen and (min-width: 768px){
   .main{
-      margin-left: 40%; 
+    margin-left: 40%; 
   }
 
   .sidenav{
-      width: 40%;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
+    width: 40%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
   }
 
   .login-form{
-      margin-top: 80%;
+    margin-top: 80%;
   }
 
   .register-form{
-      margin-top: 20%;
+    margin-top: 20%;
   }
 }
 
@@ -78,4 +77,32 @@ body {
 .btn-black{
   background-color: #000 !important;
   color: #fff;
+}
+
+.balloon1-left {
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 15px;
+  padding: 7px 10px;
+  height: 95%;
+  min-width: 120px;
+  max-width: 80%;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+  border-radius: 15px;
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.activity-text{
+  font-size: 18;
 }

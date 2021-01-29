@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
-  
+    
+  get '/dashboard', to: 'activities#show'
+  #For follow and unfollow 
+  resources :relationships, only: [:create, :destroy]
+
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   namespace :admin do
     resources :categories do
@@ -12,7 +21,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index] do
     resources :lessons, only: [:new, :create, :show] do
-      resources :answers
+      resources :answers, only: [:new, :create]
     end
   end
 

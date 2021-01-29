@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_14_065815) do
+ActiveRecord::Schema.define(version: 2021_01_26_085637) do
+
+  create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "action_type"
+    t.bigint "action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action_id", "action_type"], name: "index_activities_on_action_id_and_action_type"
+    t.index ["action_type", "action_id"], name: "index_activities_on_action_type_and_action_id"
+    t.index ["user_id", "created_at"], name: "index_activities_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "lesson_id"
@@ -49,6 +61,16 @@ ActiveRecord::Schema.define(version: 2021_01_14_065815) do
     t.index ["user_id", "created_at"], name: "index_lessons_on_user_id_and_created_at"
   end
 
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -64,4 +86,5 @@ ActiveRecord::Schema.define(version: 2021_01_14_065815) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "activities", "users"
 end

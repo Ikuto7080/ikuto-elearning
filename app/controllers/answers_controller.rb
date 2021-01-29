@@ -25,7 +25,9 @@ class AnswersController < ApplicationController
           if answer.choice.correct_ans?
             result += 1
           end # The end of if 
+          #save activity
           @lesson.update_attributes(:result =>result, :is_completed => true)
+          @lesson.create_activity(user_id: current_user.id)
         end # end of each do
         redirect_to category_lesson_url(@category, @lesson)
       end # end of unless
