@@ -41,24 +41,14 @@
                     <strong>Recent Activity</strong>
                 </h2>
                 <hr>
-                <div class="media ml-3">
-                    <div class="img m-2 align-self-center">
-                        <%= gravatar_for @user %>
-                    </div>
-                    <div class="media-body m-2 pr-5">
-                        <% if @activities.any? %>
-                            <p>
-                                <%= current_user.name %>
-                                <ol class="activities">
-                                    <%= render @activities %>
-                                </ol>
-                                <%= will_paginate @activities %>
-                            </p>
-                        <% else %>
-                            <h3>No activities</h3>
-                        <% end %>
-                    </div>
-                </div>
+                <% if @activities.any? %>
+                    <ol class="activities">
+                        <%= render @activities %>
+                    </ol>
+                    <%= will_paginate @activities %>
+                <% else %>
+                    <h3>No activities</h3>
+                <% end %>
             </div>
         </div>
     </div>
